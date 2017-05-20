@@ -1,0 +1,35 @@
+﻿@viewModel EfCore2Demo.ViewModels.DefaultViewModel, EfCore2Demo
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>Entity Framework Core Demo</h1>
+
+        <div class="well">
+            <dot:Button Text="Load Products" Click="{command: LoadProducts()}" class="btn btn-primary" />
+            <dot:Button Text="Load Order Counts" Click="{command: LoadOrderCounts()}" class="btn btn-primary" />
+            <dot:Button Text="Load Order Counts (ignore query filters)" Click="{command: LoadAllOrderCounts()}" class="btn btn-primary" />
+        </div>
+
+        <dot:GridView DataSource="{value: Products}" class="table table-striped">
+            <dot:GridViewTextColumn ValueBinding="{value: Id}" HeaderText="Id" />
+            <dot:GridViewTextColumn ValueBinding="{value: Name}" HeaderText="Name" />
+            <dot:GridViewTextColumn ValueBinding="{value: SupplierName}" HeaderText="Supplier" />
+            <dot:GridViewTextColumn ValueBinding="{value: CategoryName}" HeaderText="Category" />
+        </dot:GridView>
+
+        <dot:GridView DataSource="{value: ProductOrders}" class="table table-striped">
+            <dot:GridViewTextColumn ValueBinding="{value: Id}" HeaderText="Id" />
+            <dot:GridViewTextColumn ValueBinding="{value: Name}" HeaderText="Name" />
+            <dot:GridViewTextColumn ValueBinding="{value: OrdersCount}" HeaderText="Ordered Quantity" />
+        </dot:GridView>
+    </div>
+</body>
+</html>
